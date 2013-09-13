@@ -109,7 +109,7 @@ The idea here is to map an old route to one defined by a content type. Consider 
 
 ```yml
 pages:
-	from: 'Default/Pages/{document:any}.aspx'
+	from: 'Default/Pages/{document:any}.{ext:ext}'
 	to: '{page:document}'
 ```
 
@@ -119,19 +119,19 @@ In this case, we are stating that Bolt should generate a slug for the `page` con
 
 A to explain this a little more clearly, let's assume that our content type's `singular_slug` is set to `site-pages`. In that case, the above redirect would instead take you to `site-pages/profile`.
 
-Here's another example
+Here's another example:
 
 ```yml
 newsitems:
-	from: 'news//{id:num}/{title:any}'
+	from: 'news/{id:num}/{title:any}' # news/73/this-is-a-test
 	to: '{newsitem:title}'
 ```
 
-Here, the idea is for Redirector to first check that the field `slug` uses `[ title, id ]`, after which it will generate the proper URI at the new location, say `news-item/this-is-a-test/73`, for example.
+Here, the idea is for Redirector to first check that the field `slug` in the `newsitem` content type definition uses `[ title, id ]`, after which it will generate the proper URI at the new location, say `news-item/this-is-a-test-73`, for example.
 
 Handy, right?
 
-#### 2.Routing.yml compatibility
+#### 2. Routing.yml compatibility
 
 Bolt 1.2 introduced the ability to map custom URIs to actual ones, by means of a `routing.yml` config file. This being flexible, you could then do anything you like. For example, you could map `/about-us` to the `page` content type. Internally, Bolt will simply perform an internal request to `/page/about-us` or `page/3`, for example.
 
