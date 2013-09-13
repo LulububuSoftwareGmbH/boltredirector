@@ -6,16 +6,11 @@ A wicked little [Bolt] [1] 1.2 extension that allows you to perform any pre-app 
 Installation
 ------------
 
-Install the extension by copying the downloaded `Redirector` directory into the `extensions` directory. Then, activate by adding `Redirector` to the array of enabled extensions in the main `app/config/config.yml` file:
+The latest stable version of Redirector is included in the [bolt/bolt] (http://github.com/bolt/bolt). To activate it, simply enable the extension by adding `Redirector` to `enabled_extensions` in `app/config/config.yml`:
 
 ```yml
 enabled_extensions: [ Redirector ]
 ```
-
-You can also grab the extension as a:
-
-1. [zip ball] [3]
-2. [tar ball] [4]
 
 301 away!
 ---------

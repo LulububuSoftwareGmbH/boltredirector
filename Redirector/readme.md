@@ -94,7 +94,7 @@ options:
 
 At the moment, there is only one option available: `autoslug`
 
-When set to `true` (be default, you can turn it off if you really want to), the extension will convert your URIs to their slugified equivalents. So, if you've captured `About_Us` or `About Us` (`About%20Us`), it will be converted to `about-us` before the redirect takes place.
+When set to `true` (be default, you can turn it off if you really want to), the extension will convert your URIs to their slugified equivalents. So, if you've captured `About_Us` or `About Us` (`About%20Us`), it will be converted to `about-us` before the redirect takes place. Note that it makes these conversions *for each capture*, and not for the entire URI.
 
 When set to `false`, the extension will not implement the slugger. So, if you have a rule stating that `Pages/{page:any}.{ext:ext}` (where `page` could be `AboutUs`), it would simply be converted to lowercase, ie. `aboutus`.
 
