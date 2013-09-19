@@ -1,31 +1,29 @@
 Bolt Redirector
 ===============
 
-A wicked little [Bolt] [1] 1.2 extension that allows you to perform any pre-app `301 Moved Permanently` redirects. Kinda handy when you're moving from your silly flat file website/overly complicated CMS to Bolt. ;)
+A wicked little [Bolt] [1] 1.2 extension that allows you to perform pre-app `301 Moved Permanently` redirects. Kinda handy when you're moving from your silly flat file website/overly complicated CMS to Bolt. ;)
 
 Installation
 ------------
 
-The latest stable version of Redirector is included in the [bolt/bolt] (http://github.com/bolt/bolt) repo. To activate it, simply enable the extension by adding `Redirector` to `enabled_extensions` in `app/config/config.yml`:
+If you'd like to use the latest `master` instead of the version included in the [bolt/bolt](http://github.com/bolt/bolt) repo, you can install the extension by copying the downloaded `Redirector` directory into the `extensions` directory. Then, activate by adding `Redirector` to the array of enabled extensions in the main `app/config/config.yml` file:
 
 ```yml
 enabled_extensions: [ Redirector ]
 ```
 
-301 away!
----------
+You can grab the extension as a [zip ball] [3] / [tar ball] [4].
 
-Setting up your redirects is simple. In the extension's `config.yml` file, add the following:
+Documentation
+-------------
 
-```yml
-aboutus:
-	from: 'about-us.html'
-	to: 'page/about-us'
-```
+To learn how to use Bolt Redirector, the official documentation can be found on our official website at: http://code.foundrybusiness.co.za/bolt-redirector
 
-Let's translate this: before any site processing takes place, and if a request is made to `/about-us.html`, the browser will be redirected to `/page/about-us` with the `301 Moved Permanently` response code.
+Coming Soon
+-----------
 
-### [Learn more] (https://github.com/foundry-code/bolt-redirector/blob/master/Redirector/readme.md)
+1. The ability to match an entire route, including the GET array
+2. The ability to forward redirected POST requests (perhaps we'll match any method?) - this would incorporate point 1
 
 Contributing
 ------------
