@@ -78,12 +78,6 @@ class Extension extends BoltExtension
         // Get the extension's configuration
         $this->initializeConfiguration();
 
-        // Assign configuration groups to arrays in object
-        $configGroups = array('options', 'redirects', 'jits', 'variables');
-        foreach($configGroups as $group) {
-            $this->$group = $this->config[$group];
-        }
-
         // Go!
         $this->handleRedirects();
     }
@@ -109,6 +103,12 @@ class Extension extends BoltExtension
         // Merge these with the actual configuration definitions
         // in config.yml, which take precedence over the defaults
         $this->config = array_merge($config, $this->config);
+
+        // Assign configuration groups to arrays in object
+        $configGroups = array('options', 'redirects', 'jits', 'variables');
+        foreach($configGroups as $group) {
+            $this->$group = $this->config[$group];
+        }
     }
 
     /**
