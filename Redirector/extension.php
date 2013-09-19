@@ -238,15 +238,15 @@ class Extension extends BoltExtension
                 }
 
                 // Convert the wildcards into expressions for replacement
-                $convertedWilcards = preg_replace_callback($pattern, function ($captures) use ($self) {
+                $computedWildcards = preg_replace_callback($pattern, function ($captures) use ($self) {
                     $self->computedReplacements[] = $captures[1];
 
                     return '(' . $self->wildcards[$captures[2]] . ')';
                 }, $self->source);
 
                 // Check to see if we have these conversions in the requested path and replace where necessary
-                if (preg_match("~^$convertedWilcards$~i", $requestedPath)) {
-                    $convertedReplacements = preg_replace_callback("~^$convertedWilcards$~i", function ($captures) use ($self) {
+                if (preg_match("~^$computedWildcards$~i", $requestedPath)) {
+                    $convertedWildcards = preg_replace_callback("~^$computedWildcards$~i", function ($captures) use ($self) {
                         $result = $self->destination;
                         for ($c = 1, $n = count($captures); $c < $n; ++$c) {
                             $value = array_shift($self->computedReplacements);
@@ -266,7 +266,7 @@ class Extension extends BoltExtension
                     // Replace variables with actual data
                     foreach ($self->variables as $variable => $data) {
                         $self->assert(preg_match('~^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$~', $variable), 'inavlid_variable_declaration');
-                        $convertedReplacements = str_replace("{@$variable}", ltrim($data, '/'), $convertedReplacements);
+                        $convertedWildcards = str_replace("{@$variable}", ltrim($data, '/'), $convertedWildcards);
                     }
 
                     // Check for Just In Time replacements and apply where necessary
@@ -283,18 +283,18 @@ class Extension extends BoltExtension
                         }
                         // Match and replace
                         $jitMatcher = "~$jitReplace~i";
-                        if (preg_match($jitMatcher, $convertedReplacements)) {
-                            $convertedReplacements = preg_replace($jitMatcher, trim($jitWith, '/'), $convertedReplacements);
+                        if (preg_match($jitMatcher, $convertedWildcards)) {
+                            $convertedWildcards = preg_replace($jitMatcher, trim($jitWith, '/'), $convertedWildcards);
                         }
                     }
 
                     // Check for un-processed variables and throw an exception if there are any
-                    if (preg_match('~\{@(.*)\}~', $convertedReplacements, $variableMatches)) {
-                        $self->except(sprintf($self->errors['missing_variables'], $variableMatches[1], $convertedReplacements));
+                    if (preg_match('~\{@(.*)\}~', $convertedWildcards, $variableMatches)) {
+                        $self->except(sprintf($self->errors['missing_variables'], $variableMatches[1], $convertedWildcards));
                     }
 
                     // Redirect the user to the final, processed path
-                    return $app->redirect(strtolower("{$self->prefix}{$convertedReplacements}{$self->sourceQueryString}"), 301);
+                    return $app->redirect(strtolower("{$self->prefix}{$convertedWildcards}{$self->sourceQueryString}"), 301);
                 }
             }
         }, Silex::EARLY_EVENT);
