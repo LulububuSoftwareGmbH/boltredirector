@@ -85,6 +85,8 @@ class Extension extends BoltExtension
     /**
      * Initialise the extension's configuration
      *
+     * Last Fix: 23 Sept 2013 - Take 'empty groups' from the .yml file into account. [Responsible: @bobdenotter]
+     *
      * @return void
      */
     public function initializeConfiguration()
