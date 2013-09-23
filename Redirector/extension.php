@@ -107,7 +107,12 @@ class Extension extends BoltExtension
         // Assign configuration groups to arrays in object
         $configGroups = array('options', 'redirects', 'jits', 'variables');
         foreach($configGroups as $group) {
-            $this->$group = $this->config[$group];
+            if (!empty($this->config[$group])) {
+                $this->$group = $this->config[$group];
+            } else {
+                // Take 'empty groups' from the .yml file into account.
+                $this->$group = array();
+            }
         }
     }
 
