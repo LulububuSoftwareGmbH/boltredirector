@@ -1,7 +1,7 @@
 Bolt Redirector
 ===============
 
-A wicked little [Bolt] [1] 1.2 extension that allows you to perform pre-app `301 Moved Permanently` redirects. Kinda handy when you're moving from your silly flat file website/overly complicated CMS to Bolt. ;)
+A wicked little [Bolt] [1] 1.2+ extension that allows you to perform pre-app `301 Moved Permanently` redirects. Kinda handy when you're moving from your silly flat file website/overly complicated CMS to Bolt. ;)
 
 Installation
 ------------
