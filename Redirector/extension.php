@@ -168,7 +168,7 @@ class Extension extends BaseExtension
      * Check for a redirect. If it exists, then redirect to it's
      * converted replacement.
      *
-     * @return void|RedirectResponse
+     * @return void
      */
     public function handleRedirects()
     {
