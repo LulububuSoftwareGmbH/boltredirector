@@ -44,31 +44,6 @@ class Extension extends BaseExtension
     );
 
     /**
-     * Basic information about the extension. Shown in the Bolt admin environment.
-     *
-     * @return array
-     */
-
-    public function info()
-    {
-        $data = array(
-            'name' => 'Redirector',
-            'version' => '1.0.0',
-            'author' => 'Mike Anthony / Foundry Code',
-            'description' => 'A wicked little extension that allows you to perform any pre-app <code>301 Moved Permanently</code> redirects',
-            'type' => 'SEO Enhancement',
-            'link' => 'http://code.foundrybusiness.co.za/bolt-redirector',
-            'support_email' => 'code@foundrybusiness.co.za',
-            'first_releasedate' => '2013-09-10',
-            'latest_releasedate' => '2014-08-16',
-            'required_bolt_version' => '2.0',
-            'highest_bolt_version' => '3.0'
-        );
-
-        return $data;
-    }
-
-    /**
      * Provide an access key to the Extensions Manager in the admin environment.
      *
      * @return string
