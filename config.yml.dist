@@ -23,46 +23,8 @@ options:
 # http://code.foundrybusiness.co.za/bolt-redirector/route-moulding
 
 redirects:
-    # Uncomment the ones that you'd like to use
 
-    #page:
-    #    from: '{name:segment}.html'
-    #    to: 'page/{name}'
 
-    #nested_page: # Make sure routing.yml can handle nested paths!
-    #    from: '{path}.html'
-    #    to: 'page/{path}'
-
-    #facebook:
-    #    from: 'redirect/facebook'
-    #    to: 'https://www.facebook.com/{@facebook_page}'
-
-    #facebook_path:
-    #    from: 'redirect/facebook/{path}'
-    #    to: 'https://www.facebook.com/{@facebook_page}/{path}'
-
-    #author:
-    #    from: 'author'
-    #    to: 'http://{@author_website}/'
-
-    #new_admin:
-    #    from: 'wp-admin'
-    #    to: '{@admin_path}' # See global variables in docs
-
-    #routed_page:
-    #    from: 'pages/{slug:segment}.aspx'
-    #    to: 'route: pagebinding'
-
-    #trim_language: # See capture prevention in docs
-    #    from: '<en|fr>/{contenttypeslug:segment}/{slug:segment}'
-    #    to: 'route: contentlink'
-
-    # For those who like simplicity, use short-hand notation
-    # http://code.foundrybusiness.co.za/bolt-redirector/redirects#short-hand
-
-    #'{name}.{ext}': 'page/{name}'
-
-    #'blog': 'news'
 
 # Variables
 #
@@ -74,10 +36,8 @@ redirects:
 # http://code.foundrybusiness.co.za/bolt-redirector/variables
 
 variables:
-    # Uncomment the ones that you'd like to use
 
-    #facebook_page: 'my-facebook-page'
-    #author_website: 'code.foundrybusiness.co.za'
+
 
 # JIT (Just In Time) Replacements
 #
@@ -94,12 +54,4 @@ variables:
 # http://code.foundrybusiness.co.za/bolt-redirector/jits
 
 jits:
-    # Uncomment the ones that you'd like to use
 
-    #news_bar:
-    #    replace: 'news/foo'
-    #    with: 'news/bar'
-
-    # For those who like simplicity, use short-hand notation:
-
-    #'page/foo': 'page/foo-bar'
