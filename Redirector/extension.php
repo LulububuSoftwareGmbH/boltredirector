@@ -1,8 +1,9 @@
 <?php
-// Redirector Extension 0.9.2 for Bolt
+
+// Redirector Extension 1.0.0 for Bolt
 // by Foundry Code / Mike Anthony
-// Minimum Bolt version: 1.2
-// code.foundrybusiness.co.za/bolt-redirector
+// Minimum Bolt version: 2.0
+// http://code.foundrybusiness.co.za/bolt-redirector
 // Released under the MIT License
 
 namespace Redirector;
@@ -43,7 +44,7 @@ class Extension extends BaseExtension
     );
 
     /**
-     * Basic information about the extension. Shown in the Bolt Admin Environment.
+     * Basic information about the extension. Shown in the Bolt admin environment.
      *
      * @return array
      */
@@ -52,19 +53,30 @@ class Extension extends BaseExtension
     {
         $data = array(
             'name' => 'Redirector',
-            'version' => '0.9.2',
+            'version' => '1.0.0',
             'author' => 'Mike Anthony / Foundry Code',
             'description' => 'A wicked little extension that allows you to perform any pre-app <code>301 Moved Permanently</code> redirects',
             'type' => 'SEO Enhancement',
             'link' => 'http://code.foundrybusiness.co.za/bolt-redirector',
             'support_email' => 'code@foundrybusiness.co.za',
             'first_releasedate' => '2013-09-10',
-            'latest_releasedate' => '2013-09-30',
-            'required_bolt_version' => '1.2',
-            'highest_bolt_version' => '1.3'
+            'latest_releasedate' => '2014-08-16',
+            'required_bolt_version' => '2.0',
+            'highest_bolt_version' => '3.0'
         );
 
         return $data;
+    }
+
+    /**
+     * Provide an access key to the Extensions Manager in the admin environment.
+     *
+     * @return string
+     */
+
+    public function getName()
+    {
+        return "BoltRedirector";
     }
 
     /**
