@@ -1,15 +1,20 @@
 <?php
 
-// Redirector Extension 1.0.0 for Bolt
-// by Foundry Code / Mike Anthony
-// Minimum Bolt version: 2.0
-// http://code.foundrybusiness.co.za/bolt-redirector
-// Released under the MIT License
+/**
+ * Bolt Redirector
+ * Easily manage 301 redirects; useful for migrating from another platform.
+ *
+ * Author: Foundry Code / Mike Anthony
+ * Minimum Bolt version: 2.0
+ * Docs: http://code.foundrybusiness.co.za/bolt-redirector
+ *
+ * Released under the MIT License
+ */
 
 namespace Redirector;
 
 use Bolt\BaseExtension;
-use Silex\Application;
+use Silex\Application as BoltApplication;
 use Symfony\Component\HttpFoundation\Request;
 
 class Extension extends BaseExtension
@@ -32,15 +37,15 @@ class Extension extends BaseExtension
         'year|month|day|id' => 'num',
     );
 
-    public $errors = array (
-        'assertion_invalid' => 'Invalid assertion condition supplied. Please provide a boolean condition.',
-        'inavlid_variable_declaration' => 'Invalid variable declaration: A valid variable declaration starts with a letter or underscore, followed by any number of letters, numbers, or underscores.',
-        'missing_variables' => 'Un-processed variable in redirect destination. Please add the `%s` variable to the `variables` group in `Redirector/config.yml`. (Destination: `%s`)',
-        'string_lh_destination' => 'Redirect destination must be a string.',
-        'string_lh_jitsource' => 'JIT source must be a string.',
-        'string_lh_source' => 'Redirect source must be a string.',
-        'string_sh_jitsource' => 'Short-hand JIT source must be a string.',
-        'string_sh_source' => 'Short-hand redirect source must be a string.',
+    public $errors = array(
+        'InvalidAssertion' => 'Invalid assertion condition supplied. Please provide a boolean condition.',
+        'InvalidVariableDeclaration' => 'Invalid variable declaration: A valid variable declaration starts with a letter or underscore, followed by any number of letters, numbers, or underscores.',
+        'MissingVariables' => 'Un-processed variable in redirect destination. Please add the `%s` variable to the `variables` group in `Redirector/config.yml`. (Destination: `%s`)',
+        'LonghandStringDestination' => 'Redirect destination must be a string.',
+        'LonghandStringJITSource' => 'JIT source must be a string.',
+        'LonghandStringSource' => 'Redirect source must be a string.',
+        'ShorthandStringJITSource' => 'Short-hand JIT source must be a string.',
+        'ShorthandStringSource' => 'Short-hand redirect source must be a string.',
     );
 
     /**
@@ -70,8 +75,6 @@ class Extension extends BaseExtension
 
     /**
      * Initialise the extension's configuration
-     *
-     * Last Fix: 23 Sept 2013 - Take 'empty groups' from the .yml file into account. [Responsible: @bobdenotter]
      *
      * @return void
      */
@@ -118,6 +121,7 @@ class Extension extends BaseExtension
         if (isset($this->errors[$message])) {
             $message = $this->errors[$message];
         }
+
         throw new \Exception($message, $code);
     }
 
@@ -126,15 +130,13 @@ class Extension extends BaseExtension
      *
      * @return void
      */
-    public function assert($condition = false, $error = 'assertion_invalid')
+    public function assert($condition = false, $error = 'InvalidAssertion')
     {
         ($condition) or $this->except($error);
     }
 
     /**
      * Make input slugs more friendly. Like cats.
-     *
-     * Last Fix: 13 Sept 2013 - fixed problem with spaces
      *
      * @param $input
      * @return string
@@ -185,12 +187,12 @@ class Extension extends BaseExtension
 
                 // Check for short-hand notation
                 if (!is_array($redirectData)) {
-                    $self->assert(is_string($redirectName), 'string_sh_source');
+                    $self->assert(is_string($redirectName), 'ShorthandStringSource');
                     $self->source = trim($redirectName, '/');
                     $self->destination = trim($redirectData, '/');
                 } else {
-                    $self->assert(is_string($redirectData["from"]), 'string_lh_source');
-                    $self->assert(is_string($redirectData["to"]), 'string_lh_destination');
+                    $self->assert(is_string($redirectData["from"]), 'LonghandStringSource');
+                    $self->assert(is_string($redirectData["to"]), 'LonghandStringDestination');
                     $self->source = trim($redirectData['from'], '/');
                     $self->destination = trim($redirectData['to'], '/');
                 }
@@ -209,7 +211,6 @@ class Extension extends BaseExtension
                 if (preg_match($nonCaptureMatcher, $self->source)) {
                     $self->source = preg_replace($nonCaptureMatcher, "(?:\\1)", $self->source);
                 }
-
 
                 // Check if we're redirecting to a route and apply the path if it exists
                 $routeMatcher = "~^route\:\s+?([a-z\-_]+)$~";
@@ -261,7 +262,7 @@ class Extension extends BaseExtension
                     ));
                     // Replace variables with actual data
                     foreach ($self->variables as $variable => $data) {
-                        $self->assert(preg_match('~^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$~', $variable), 'inavlid_variable_declaration');
+                        $self->assert(preg_match('~^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$~', $variable), 'InvalidVariableDeclaration');
                         $convertedWildcards = str_replace("{@$variable}", ltrim($data, '/'), $convertedWildcards);
                     }
 
@@ -269,11 +270,11 @@ class Extension extends BaseExtension
                     foreach ($self->jits as $jitName => $jitData) {
                         // Check for short-hand notation
                         if (is_string($jitData)) {
-                            $self->assert(is_string($jitName), 'string_sh_jitsource');
+                            $self->assert(is_string($jitName), 'ShorthandStringJITSource');
                             $jitReplace = $jitName;
                             $jitWith = $jitData;
                         } else {
-                            $self->assert(is_string($jitData['replace']), 'string_lh_jitsource');
+                            $self->assert(is_string($jitData['replace']), 'LonghandStringJITSource');
                             $jitReplace = $jitData['replace'];
                             $jitWith = $jitData['with'];
                         }
@@ -286,13 +287,13 @@ class Extension extends BaseExtension
 
                     // Check for un-processed variables and throw an exception if there are any
                     if (preg_match('~\{@(.*)\}~', $convertedWildcards, $variableMatches)) {
-                        $self->except(sprintf($self->errors['missing_variables'], $variableMatches[1], $convertedWildcards));
+                        $self->except(sprintf($self->errors['MissingVariables'], $variableMatches[1], $convertedWildcards));
                     }
 
                     // Redirect the user to the final, processed path
                     return $app->redirect(strtolower("{$self->prefix}{$convertedWildcards}{$self->sourceQueryString}"), 301);
                 }
             }
-        }, Application::EARLY_EVENT);
+        }, BoltApplication::EARLY_EVENT);
     }
 }
