@@ -86,9 +86,9 @@ class Extension extends BaseExtension
         // Set the configuration defaults
         $config = array(
             'options' => array(
-                'autoslug' => true,
-                'append_query_string' => false,
-                'ignore_errors' => false,
+                'autoSlug' => true,
+                'appendQueryString' => false,
+                'ignoreErrors' => false,
             ),
             'redirects' => array(),
             'jits' => array(),
@@ -199,7 +199,7 @@ class Extension extends BaseExtension
 
                 // Check for a query string
                 $self->sourceQueryString = '';
-                if ($self->options['append_query_string']) {
+                if ($self->options['appendQueryString']) {
                     $queryString = $request->getQueryString();
                     if (!is_null($queryString)) {
                         $self->sourceQueryString = "?$queryString";
@@ -247,7 +247,7 @@ class Extension extends BaseExtension
                         $result = $self->destination;
                         for ($c = 1, $n = count($captures); $c < $n; ++$c) {
                             $value = array_shift($self->computedReplacements);
-                            if ($self->options['autoslug']) {
+                            if ($self->options['autoSlug']) {
                                 $captures[$c] = $self->slugify($captures[$c]);
                             }
                             $result = str_replace('{' . $value . '}', $captures[$c], $result);

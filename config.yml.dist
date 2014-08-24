@@ -6,14 +6,17 @@
 # http://code.foundrybusiness.co.za/bolt-redirector/options
 
 options:
+
     # Auto slugging should be enabled. Makes slugs friendly. Like cats.
-    autoslug: true
+
+    autoSlug: true
 
     # If there is a query string, append it to the destination path.
     #
     # Disabled by default as Bolt generally doesn't need them. But, if
     # you have an extension that does need them, best to turn it on.
-    append_query_string: false
+
+    appendQueryString: false
 
 # These are the main on-site redirects.
 #
@@ -24,7 +27,9 @@ options:
 
 redirects:
 
-
+	html:
+		from: '{path}.{ext}'
+		to: '{path}'
 
 # Variables
 #
