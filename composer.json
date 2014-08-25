@@ -20,7 +20,7 @@
             "init.php"
         ],
         "psr-4": {
-            "Redirector\\": ""
+            "Bolt\\Extension\\FoundryCode\\": ""
         }
     },
     "extra": {

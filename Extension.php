@@ -11,13 +11,13 @@
  * Released under the MIT License
  */
 
-namespace Redirector;
+namespace Bolt\Extension\FoundryCode;
 
 use Bolt\BaseExtension;
 use Silex\Application as BoltApplication;
 use Symfony\Component\HttpFoundation\Request;
 
-class Extension extends BaseExtension
+class Redirector extends BaseExtension
 {
     public $wildcards = array(
         'all' => '.*',
