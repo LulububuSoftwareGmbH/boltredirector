@@ -6,6 +6,6 @@
 // http://code.foundrybusiness.co.za/bolt-redirector
 // Released under the MIT License
 
-use Redirector\Extension;
+use Bolt\Extension\FoundryCode\Redirector;
 
-$app['extensions']->register(new Extension($app));
+$app['extensions']->register(new Redirector($app));
