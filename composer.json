@@ -1,5 +1,5 @@
 {
-    "name": "foundry-code/bolt-redirector",
+    "name": "foundrycode/boltredirector",
     "description": "Easily manage 301 redirects; useful for migrating from another platform.",
     "type": "bolt-extension",
     "keywords": [
