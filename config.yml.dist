@@ -27,9 +27,9 @@ options:
 
 redirects:
 
-	html:
-		from: '{path}.{ext}'
-		to: '{path}'
+    html:
+        from: '{path}.{ext}'
+        to: '{path}'
 
 # Variables
 #
