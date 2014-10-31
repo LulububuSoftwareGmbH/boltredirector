@@ -10,7 +10,7 @@ This version of Redirector requires at least Bolt 2.0, due to the re-modelled ex
 
 ## Installation
 
-To install the extension, use the extensions manager in Bolt.
+To install the extension, use the extensions manager in Bolt. The extension is filed under `foundrycode/boltredirector` - note the missing dashes. You can also just search-ahead for 'redirector', and it'll pop up.
 
 ## Defining Redirects
 
@@ -30,7 +30,7 @@ Where `<old-location>` is the location as it was on your previous website (or, p
 
 Let's translate this: before any site processing takes place, and if a request is made to `/Default/Pages/About_Us.aspx`, the browser will be redirected to `/page/about-us` with the `301 Moved Permanently` response code.
 
-### [Short-hand Notation]
+### Short-hand Notation
 
 For those individuals who are too simple for words to even describe, we've got just thing:
 
@@ -40,7 +40,7 @@ This isn't very neat in the long-run - can get quite messy...
 
 Oh, and these apply to Just In Time Replacements as well. (See below.)
 
-### [Jump Links]
+### Jump Links
 
 There are instance where you may want to redirect a certain slug to an external site. Jump-links, as we call them, can be used in Redirector:
 
@@ -80,9 +80,9 @@ The following file extensions will be detected: `asp`, `aspx`, `cgi`, `fcgi`, `h
 
 We use this expression to do the check: `aspx?|f?cgi|s?html?|jhtml|rbml|jsp|phps?`
 
-**Note:** Upon checking each slug, the extension is *not interested* in what case it is in. Upper and lower case makes no difference. When `autoslug` is enabled (which it is by default), the slug will be converted to it's slugified equivalent (see [Setting Options](options#autoslug) for more information on this).
+**Note:** Upon checking each slug, the extension is *not interested* in what case it is in. Upper and lower case makes no difference. When `autoslug` is enabled (which it is by default), the slug will be converted to it's slugified equivalent (see "Setting Options" below for more information on this).
 
-### [Available Wildcard Types]
+### Available Wildcard Types
 
 The following wilcard types are available:
 
@@ -97,7 +97,7 @@ Type      | Matches
 :segments | A set of common segments (separated by slashes)
 :ext      | A common file extension (as above)
 
-### [Multiple Wildcards]
+### Multiple Wildcards
 
 Not everyone has only one segment in their slugs. So, you can use as many as you like:
 
@@ -107,7 +107,7 @@ Not everyone has only one segment in their slugs. So, you can use as many as you
 
 Of course, in this example, you'd need to make sure that no two names/slugs are the same, otherwise there will be a little overlap - not good!
 
-### [Smart Wildcards]
+### Smart Wildcards
 
 In a nutshell these wildcards assume the type you wish you wish to encapsulate. This means that, for specific wildcards (identified by name), you do not need to supply its type from the above table.
 
@@ -127,7 +127,7 @@ name, title, page, post, user, model | :segment
 year, month, day, id                 | :num
 ext                                  | :ext
 
-### [Regular Expressions and Capture Prevention](#regular-expressions-and-capture-prevention)
+### Regular Expressions and Capture Prevention
 
 If you need to make use of a Regular Expression within your source slug (that is, before the last wildcard), you'll need to wrap them in angular braces so that they are not captured by the parser. For example, let's say you wanted to match a specific path that may incorporate language-selection, such as `en/page/about-us`, you could do something like this:
 
