@@ -10,7 +10,7 @@ This version of Redirector requires at least Bolt 2.0, due to the re-modelled ex
 
 ## Installation
 
-To install the extension, use the extensions manager in Bolt. The extension is filed under `foundrycode/boltredirector` - note the missing dashes. You can also just search-ahead for 'redirector', and it'll pop up.
+To install the extension, use the extensions manager in Bolt. The extension is filed under `foundrycode/boltredirector`. You can also just search-ahead for 'redirector', and it'll pop up.
 
 ## Defining Redirects
 
