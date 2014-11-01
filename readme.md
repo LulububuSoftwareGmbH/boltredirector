@@ -6,7 +6,7 @@ A wicked little extension designed for [Bolt 2.0](//bolt.cm) and up that allows 
 
 ## Requirements
 
-This version of Redirector requires at least Bolt 2.0, due to the re-modelled extensions interface and methodology. (See 0.9.2 branch for earlier versions of Bolt.)
+This version of Redirector requires at least Bolt 2.0, due to the re-modelled extensions interface and methodology. (See 0.9.2 tag if you need Redirector for earlier versions of Bolt.)
 
 ## Installation
 
