@@ -1,16 +1,24 @@
 ![Bolt Redirector (Logo)](http://code.foundrybusiness.co.za/images/bolt-redirector.png "Bolt Redirector")
 
+- - -
+
 ## An Introduction
 
 A wicked little extension designed for [Bolt 2.0](//bolt.cm) and up that allows you to perform any pre-app `301 Moved Permanently` redirects. Kinda handy when you're moving from your silly flat file website/overly complicated CMS to Bolt. ;)
+
+- - -
 
 ## Requirements
 
 This version of Redirector requires at least Bolt 2.0, due to the re-modelled extensions interface and methodology. (See 0.9.2 tag if you need Redirector for earlier versions of Bolt.)
 
+- - -
+
 ## Installation
 
 To install the extension, use the extensions manager in Bolt. The extension is filed under `foundrycode/boltredirector`. You can also just search-ahead for 'redirector', and it'll pop up.
+
+- - -
 
 ## Defining Redirects
 
@@ -57,6 +65,8 @@ Whilst YAML does allow you to skip the quotes on strings, it's recommended that 
 Do not prepend any URIs with a forward slash. All URIs are relative to the root of your site, unless the destination is a jump-link (a link to an external site). All trailing slashes will be removed before any processing takes place.
 
 When creating route-based redirects, you must make sure that the placeholders match. For example, if you want to capture `{slug}`, you must make sure that the route definition in `routing.yml` has a `{slug}` too.
+
+- - -
 
 ## Using Wildcards
 
@@ -149,6 +159,8 @@ Here's another example:
 
 Here, we're redirecting all API requests from versions 1-2 and 4-∞ to version 3. So, `api/v1/dosomething` and `api/v19000/dosomething` will redirect to `api/v3/dosomething`.
 
+- - -
+
 ## Route Moulding
 
 Bolt 1.2 introduced the ability to map custom slugs to actual ones, by means of a `routing.yml` configuration file. Being flexible, you could then do with it anything you like. For example, you could map `/about-us` to the `page` content type. Internally, Bolt will simply perform an internal request to `/page/about-us` or `page/3`, for example.
@@ -172,6 +184,8 @@ Here's the redirect-rule:
 In this example, `News/Technology/Item/Microsoft_Acquires_Nokias_Hardware_and_Services_Business.html` would be redirected to `news/tech/microsoft-acquires-nokias-hardware-and-services-business`, which would then be internally processed by Bolt.
 
 So, if you want to redirect to a route, simply use the format `'route: <route-name>'` in the `to:` property of the rule.
+
+- - -
 
 ## Variables
 
@@ -210,6 +224,8 @@ Now, you can redefine the rules like this:
         to: 'https://www.facebook.com/{@facebook_page}/about'
 
 Sure, this isn't very common, but there are good uses for it. Just gotta find them.
+
+- - -
 
 ## Just In Time Replacements (JITs)
 
@@ -257,6 +273,8 @@ As mentioned in the Using Redirects section, you can also use short-hand notatio
 
     'page/about-us': 'page/about'
     'page/our-services': 'page/solutions'
+
+- - -
 
 ## Setting Options
 
