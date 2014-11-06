@@ -317,6 +317,8 @@ If you provided that URI with a query string (`phones.php?filter=Samsung`, for e
 
 If, however, the option was disabled, you'd simply be redirected to `phones` (which, in this case, would defeat the purpose of making filters for that content type).
 
+- - -
+
 # License
 
 Bolt Redirect is licensed under the Open Source [MIT License](//opensource.org/licenses/mit-license.php).
