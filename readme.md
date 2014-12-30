@@ -22,7 +22,7 @@ To install the extension, use the extensions manager in Bolt. The extension is f
 
 ## Defining Redirects
 
-Once you're all up and running, defining your 301-redirects is simple. Each redirect is stored the extension's configuration file (stored at `/app/config/extensions/boltredirector.foundrycode.yml`), under the `redirects` section. The syntax is as follows:
+Once you're all up and running, defining your 301-redirects is simple. Each redirect is stored the extension's configuration file (stored at `/app/config/extensions/boltredirector.foundrycode.yml`, or accessible via 'Config' in the backend), under the `redirects` section. The syntax is as follows:
 
     name:
         from: '<old-location>'
