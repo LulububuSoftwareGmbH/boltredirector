@@ -4,7 +4,7 @@
 
 ## An Introduction
 
-A wicked little extension designed for [Bolt 2.0](//bolt.cm) and up that allows you to perform any pre-app `301 Moved Permanently` redirects. Kinda handy when you're moving from your silly flat file website/overly complicated CMS to Bolt. ;)
+A wicked little extension designed for [Bolt 2.0](//bolt.cm) and up that allows you to perform any pre-app `301 Moved Permanently` redirects. Kinda handy when you're moving from your silly flat file website/overly complicated CMS to Bolt. :wink:
 
 - - -
 
