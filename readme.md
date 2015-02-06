@@ -2,12 +2,13 @@
 
 Features to come:
 
-1. Better wildcard implementation
-2. More smart wildcards
-3. Mapping collections
-4. Enhanced cleaning
-5. Debug mode
-6. Legacy domain support
+- Better Wildcard implementation
+- Timed Activation
+- More Smart Wildcards
+- Mapping collections
+- Enhanced wildcard cleaning
+- Legacy domain support
+- Debug mode
 
 There will be no admin-backend support, however. The extension will continue to use a configuration file.
 
