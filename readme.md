@@ -1,5 +1,6 @@
-![Bolt Redirector (Logo)](http://code.foundrybusiness.co.za/images/bolt-redirector.png "Bolt Redirector")
+**This repo, in its current state, will no longer be maintained. Instead, I will work on a new version that will be similar to [ProcessJumplinks](https://github.com/mike-anthony/ProcessJumplinks) for ProcessWire. Once ready, it will be made available from my personal account, and not the Foundry Code account (which will be deleted).**
 
+- - -
 - - -
 
 ## An Introduction
