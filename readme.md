@@ -1,16 +1,4 @@
-**This repo, in its current state, is no longer being maintained. Instead, I will soon work on a new version that will be similar to [ProcessJumplinks](https://github.com/mike-anthony/ProcessJumplinks) for ProcessWire in terms of functionality. Once ready, it will be made available from my personal account, and not the Foundry Code account (which will be deleted).**
-
-Features to come:
-
-- Better Wildcard implementation
-- Timed Activation
-- More Smart Wildcards
-- Mapping collections
-- Enhanced wildcard cleaning
-- Legacy domain support
-- Debug mode
-
-There will be no admin-backend support, however. The extension will continue to use a configuration file.
+**No longer maintained.**
 
 - - -
 - - -
