@@ -7,8 +7,6 @@
  * Author: Foundry Code / Mike Anthony
  * Minimum Bolt version: 2.0
  * Docs: http://code.foundrybusiness.co.za/bolt-redirector
- *
- * Released under the MIT License
  */
 
 namespace Bolt\Extension\FoundryCode;
