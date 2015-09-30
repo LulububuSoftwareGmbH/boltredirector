@@ -1,6 +1,8 @@
-**No longer maintained.**
+## No longer maintained.
 
-- - -
+This project is no longer maintained. However, download and usage remains open.
+Additionally, the project license has been removed - anyone may re-release this project under their own name after modifications/enhancements; no attribution required.
+
 - - -
 
 ## An Introduction
@@ -322,4 +324,4 @@ If, however, the option was disabled, you'd simply be redirected to `phones` (wh
 
 # License
 
-Bolt Redirect is licensed under the Open Source [MIT License](//opensource.org/licenses/mit-license.php).
+This project is no longer licenced, and may be modified and re-distributed at will, with no attribution required.
