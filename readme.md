@@ -1,17 +1,22 @@
-### Info
+Boltredirector
+======================
 
-BoltRedirector is wicked little extension designed for [Bolt 2.0](//bolt.cm) and up that allows you to perform any pre-app `301 Moved Permanently` redirects. Kinda handy when you're moving from your silly flat file website/overly complicated CMS to Bolt. :wink:
+This [bolt.cm](https://bolt.cm/) extension allows you to perform any pre-app 301 Moved Permanently redirects.
 
-This version of Redirector requires at least Bolt 2.0, due to the re-modelled extensions interface and methodology. The old extension (0.9.2) has been removed.
+### Installation
+1. Login to your Bolt installation
+2. Go to "Extend" or "Extras > Extend"
+3. Type `boltredirector` into the input field
+4. Click on the extension name
+5. Click on "Browse Versions"
+6. Click on "Install This Version" on the latest stable version
 
-To install the extension, use the extensions manager in Bolt. The extension is filed under `foundrycode/boltredirector`. You can also just search-ahead for 'redirector', and it'll pop up.
-
-## Documentation
+### Documentation
 
 Documentation has been moved **[here](https://github.com/foundrycode/boltredirector/wiki)**.
 
 - - -
 
-# License
+### License
 
-This project is no longer licenced, and may be modified and re-distributed at will, with no attribution required.
+This Bolt extension is open-sourced software licensed under the MIT License.

@@ -1,5 +1,5 @@
 {
-    "name": "foundrycode/boltredirector",
+    "name": "sahassar/boltredirector",
     "description": "Easily manage 301 redirects; useful for migrating from another platform.",
     "type": "bolt-extension",
     "keywords": [
@@ -8,24 +8,34 @@
         "migration"
     ],
     "require": {
-        "bolt/bolt": ">=2.0.0,<3.0.0"
+        "bolt/bolt": "^3.0"
     },
     "license": "MIT",
-    "authors": [{
-        "name": "Mike Anthony",
-        "email": "code@foundrybusiness.co.za"
-    }],
+    "authors": [
+        {
+            "name": "Mike Anthony",
+            "email": "code@foundrybusiness.co.za"
+        },
+        {
+            "name": "Svante Richter",
+            "email": "svante.richter@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
-        "files": [
-            "init.php"
-        ],
         "psr-4": {
-            "Bolt\\Extension\\FoundryCode\\": ""
+            "Bolt\\Extension\\Sahassar\\Boltredirector\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bolt\\Extension\\Sahassar\\Boltredirector\\Tests\\": "tests",
+            "Bolt\\Tests\\": "vendor/bolt/bolt/tests/phpunit/unit/"
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.*"
-        }
+        "bolt-assets": "web",
+        "bolt-class": "Bolt\\Extension\\Sahassar\\Boltredirector\\BoltredirectorExtension"
     }
 }

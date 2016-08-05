@@ -1,37 +1,18 @@
 ## For information on how to use thie file, see the documentation at the repo home:
-## github.com/foundrycode/boltredirector
-
-# Options - Set Options for the Extension
-
-options:
-
-    # Auto slugging should be enabled. Makes slugs friendly. Like cats.
-
-    autoSlug: true
-
-    # If there is a query string, append it to the destination path.
-    # Disabled by default as Bolt generally doesn't need them. But, if
-    # you have an extension that does need them, best to turn it on.
-
-    appendQueryString: false
+## github.com/sahassar/boltredirector
 
 # Redirects - The Main Redirects for this Installation
-
 redirects:
-
-    html:
-        from: '{path}.{ext}'
-        to: '{path}'
+    page:
+        from: '{path}.html'
+        to: '/page/{slug}'
 
 # Variables
 #
 # A simple array to make variable replacements in destination paths using the
-# {@<variable>} syntax. Be sure to avoid using global variables here as
-# they'll be overwritten!
+# {@<variable>} syntax. 
 
 variables:
-
-
 
 # JIT (Just In Time) Replacements
 #
@@ -43,6 +24,7 @@ variables:
 # string, then you can keep it as short as needed.
 #
 # Also, regular expressions are allowed here. Capture with \\n.
-
 jits:
-
+    test:
+        replace: 'page/test2'
+        with: 'page/test'
