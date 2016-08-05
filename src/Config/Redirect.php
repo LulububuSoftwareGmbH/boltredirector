@@ -51,7 +51,7 @@ class Redirect extends ParameterBag
     /**
      * Prep regexes and replacements
      */
-    private function prepare()
+    public function prepare()
     {
         // Set the combined wildcard
         $this->wildcardmatch = '~\{([a-z]+):(' . join('|', $this->wildcards) . ')\}~';
