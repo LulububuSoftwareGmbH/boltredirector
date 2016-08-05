@@ -28,14 +28,7 @@
             "Bolt\\Extension\\Sahassar\\Boltredirector\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Bolt\\Extension\\Sahassar\\Boltredirector\\Tests\\": "tests",
-            "Bolt\\Tests\\": "vendor/bolt/bolt/tests/phpunit/unit/"
-        }
-    },
     "extra": {
-        "bolt-assets": "web",
         "bolt-class": "Bolt\\Extension\\Sahassar\\Boltredirector\\BoltredirectorExtension"
     }
 }

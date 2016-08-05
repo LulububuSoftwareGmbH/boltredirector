@@ -13,7 +13,7 @@ This [bolt.cm](https://bolt.cm/) extension allows you to perform any pre-app 301
 
 ### Documentation
 
-Documentation has been moved **[here](https://github.com/foundrycode/boltredirector/wiki)**.
+Documentation has been moved **[here](https://github.com/sahassar/boltredirector/wiki)**.
 
 - - -
 
