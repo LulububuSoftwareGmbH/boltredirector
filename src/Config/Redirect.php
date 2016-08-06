@@ -31,8 +31,6 @@ class Redirect extends ParameterBag
 
     private $nonCaptureMatcher = "~<([a-z0-9\-_\|]+)>~";
 
-    private $routeMatcher = "~^route\:\s+?([a-z\-_]+)$~";
-
     private $pattern;
 
     /**
@@ -54,7 +52,7 @@ class Redirect extends ParameterBag
     public function prepare()
     {
         // Set the combined wildcard
-        $this->wildcardmatch = '~\{([a-z]+):(' . join('|', $this->wildcards) . ')\}~';
+        $this->pattern = '~\{([a-z]+):(' . join('|', $this->wildcards) . ')\}~';
 
         // Check for a non-capture group in the source and convert to regex equivalent
         if (preg_match($this->nonCaptureMatcher, $this->get('from'))) {
@@ -70,7 +68,7 @@ class Redirect extends ParameterBag
         }
 
         // Convert the wildcards into expressions for replacement
-        $this->computedWildcards = preg_replace_callback($this->wildcardmatch, function ($captures) {
+        $this->computedWildcards = preg_replace_callback($this->pattern, function ($captures) {
             $this->computedReplacements[] = $captures[1];
             return '(' . $this->wildcards[$captures[2]] . ')';
         }, $this->get('from'));
