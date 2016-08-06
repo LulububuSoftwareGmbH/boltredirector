@@ -1,6 +1,8 @@
 Boltredirector
 ======================
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/fc90e516-e209-4638-9877-19d18d984ba9/mini.png)](https://insight.sensiolabs.com/projects/fc90e516-e209-4638-9877-19d18d984ba9)
+
 This [bolt.cm](https://bolt.cm/) extension allows you to perform any pre-app 301 Moved Permanently redirects.
 
 ### Installation
