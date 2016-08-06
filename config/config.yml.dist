@@ -4,7 +4,7 @@
 # Redirects - The Main Redirects for this Installation
 redirects:
     page:
-        from: '{path}.html'
+        from: '{slug:segment}.html'
         to: '/page/{slug}'
 
 # Variables
