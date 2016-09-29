@@ -40,7 +40,7 @@ class Redirector
             $redirect->prepare();
 
             if($redirect->match($path)){
-                return $app->redirect($redirect->getResult($path), 301);
+                return $app->redirect('/' . $redirect->getResult($path), 301);
             }
         }
     }
