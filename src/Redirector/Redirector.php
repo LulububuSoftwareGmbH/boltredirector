@@ -42,7 +42,7 @@ class Redirector
                 $result = $redirect->getResult($path);
 
                 // Only prefix Bolt redirects
-                if (substr($result, 0, 4 ) !== "http") {
+                if (!preg_match("~^(https?|ftps?)\://~", $result)) {
                     $result = '/' . $result;
                 }
 
