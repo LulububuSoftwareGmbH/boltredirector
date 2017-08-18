@@ -33,14 +33,20 @@ class Redirector
      */
     public function handle(Request $request, Application $app)
     {
-
         $path = trim($request->getPathInfo(), '/');
         foreach ($this->config->getRedirects() as $redirect) {
 
             $redirect->prepare();
 
-            if($redirect->match($path)){
-                return $app->redirect('/' . $redirect->getResult($path), 301);
+            if ($redirect->match($path)) {
+                $result = $redirect->getResult($path);
+
+                // Only prefix Bolt redirects
+                if (substr($result, 0, 4 ) !== "http") {
+                    $result = '/' . $result;
+                }
+
+                return $app->redirect($result, 301);
             }
         }
     }
