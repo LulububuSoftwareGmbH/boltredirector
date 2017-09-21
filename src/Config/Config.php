@@ -20,6 +20,10 @@ class Config extends ParameterBag
     {
         parent::__construct($config);
 
+        if (!isset($config['redirects']) || ! is_array($config['redirects'])) {
+            $config['redirects'] = [];
+        }
+
         $this->remove('redirects');
         foreach ($config['redirects'] as $name => $parameters) {
             if (!is_array($parameters)) {
@@ -27,6 +31,10 @@ class Config extends ParameterBag
             } else {
                 $this->parameters['redirects'][] = new Redirect($parameters, $this);
             }
+        }
+
+        if (!isset($config['jits']) || ! is_array($config['jits'])) {
+            $config['jits'] = [];
         }
 
         $this->remove('jits');
@@ -85,5 +93,14 @@ class Config extends ParameterBag
     public function setVariables(array $variables)
     {
         $this->set('variables', $variables);
+    }
+
+    /**
+     * Get slightly tweaked so the default response is an array
+     * {@inheritdoc}
+     */
+    public function get($key, $default = null, $deep = false)
+    {
+        return parent::get($key, $default = [], $deep);
     }
 }
