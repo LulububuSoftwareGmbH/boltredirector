@@ -40,13 +40,14 @@ class Redirector
 
             if ($redirect->match($path)) {
                 $result = $redirect->getResult($path);
+                $status = $redirect->getStatusCode();
 
                 // Only prefix Bolt redirects
                 if (!preg_match("~^(https?|ftps?)\://~", $result)) {
                     $result = '/' . $result;
                 }
 
-                return $app->redirect($result, 301);
+                return $app->redirect($result, $status);
             }
         }
     }
