@@ -101,6 +101,6 @@ class Config extends ParameterBag
      */
     public function get($key, $default = null, $deep = false)
     {
-        return parent::get($key, $default = [], $deep);
+        return (array) parent::get($key, $default, $deep);
     }
 }
