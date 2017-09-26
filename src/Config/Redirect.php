@@ -33,6 +33,13 @@ class Redirect extends ParameterBag
 
     private $pattern;
 
+    private $allowedStatusCodes = array(
+        301,
+        302,
+        307,
+        308,
+    );
+
     /**
      * Constructor, sets the config
      *
@@ -120,5 +127,25 @@ class Redirect extends ParameterBag
         }
 
         return $result;
+    }
+
+
+    /**
+     * Gets the set status-code for the redirects
+     *
+     * @note The Silex standard would be 302, but since it was always hardcoded to 301
+     * In the extension we're returning that, to keep BC.
+     *
+     * @return int|mixed
+     */
+    public function getStatusCode()
+    {
+        $status = $this->get('status');
+
+        if ($status === null || ! in_array($status, $this->allowedStatusCodes)) {
+            return 301;
+        }
+
+        return $status;
     }
 }
