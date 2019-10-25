@@ -88,11 +88,13 @@ class Redirect extends ParameterBag
      *
      * @return bool
      */
-    public function match($path)
+    public function match($path, $app)
     {
-        dump($path);
-        die();
-        return preg_match("~^" . $this->computedWildcards . "$~i", $path);
+        try {
+            return preg_match("~^" . $this->computedWildcards . "$~i", $path);
+        } catch (\Exception $exception) {
+            return $app['logger.flash']->error('Error while parsing the boltredirector <a href="/bolt/file/edit/extensions_config/boltredirector.sahassar.yml">configuration</a>.');
+        }
     }
 
     /**

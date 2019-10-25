@@ -38,7 +38,7 @@ class Redirector
 
             $redirect->prepare();
 
-            if ($redirect->match($path)) {
+            if ($redirect->match($path, $app)) {
                 $result = $redirect->getResult($path);
                 $status = $redirect->getStatusCode();
 
