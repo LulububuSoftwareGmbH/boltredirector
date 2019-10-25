@@ -90,6 +90,8 @@ class Redirect extends ParameterBag
      */
     public function match($path)
     {
+        dump($path);
+        die();
         return preg_match("~^" . $this->computedWildcards . "$~i", $path);
     }
 
