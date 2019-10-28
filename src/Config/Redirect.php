@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  */
 class Redirect extends ParameterBag
 {
-    private $wildcards = array(
+    private $wildcards = [
         'all' => '.?',
         'alpha' => '[a-z]+',
         'alphanum' => '[a-z0-9]+',
@@ -20,30 +20,31 @@ class Redirect extends ParameterBag
         'num' => '[0-9]+',
         'segment' => '[a-z0-9\-_]+',
         'segments' => '[a-z0-9\-_/]+',
-    );
+    ];
 
-    private $smartWildcards = array(
+    private $smartWildcards = [
         'ext' => 'ext',
         'name|title|page|post|user|model' => 'segment',
         'path' => 'segments',
         'year|month|day|id' => 'num',
-    );
+    ];
 
     private $nonCaptureMatcher = "~<([a-z0-9\-_\|]+)>~";
 
     private $pattern;
 
-    private $allowedStatusCodes = array(
+    private $allowedStatusCodes = [
         301,
         302,
         307,
         308,
-    );
+    ];
 
     /**
      * Constructor, sets the config
      *
      * @param $redirect
+     * @param $config
      */
     public function __construct($redirect, $config)
     {
@@ -83,14 +84,19 @@ class Redirect extends ParameterBag
 
     /**
      * Check if this redirect matches the path
-     *
-     * @param string $path
-     *
-     * @return bool
+     * 
+     * @param $path
+     * @param $app
+     * 
+     * @return false|int
      */
-    public function match($path)
+    public function match($path, $app)
     {
-        return preg_match("~^" . $this->computedWildcards . "$~i", $path);
+        try {
+            return preg_match("~^" . $this->computedWildcards . "$~i", $path);
+        } catch (\Exception $exception) {
+            return $app['logger.flash']->error('Error while parsing the boltredirector <a href="/bolt/file/edit/extensions_config/boltredirector.sahassar.yml">configuration</a>.');
+        }
     }
 
     /**

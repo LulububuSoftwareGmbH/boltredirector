@@ -18,7 +18,7 @@ class Redirector
     /**
      * Constructor.
      *
-     * @param array $config
+     * @param Config $config
      */
     public function __construct(Config $config)
     {
@@ -28,8 +28,10 @@ class Redirector
     /**
      * Before handler that handles redirects
      *
-     * @param Request     $request
+     * @param Request $request
      * @param Application $app
+     *
+     * @return mixed
      */
     public function handle(Request $request, Application $app)
     {
@@ -38,7 +40,7 @@ class Redirector
 
             $redirect->prepare();
 
-            if ($redirect->match($path)) {
+            if ($redirect->match($path, $app)) {
                 $result = $redirect->getResult($path);
                 $status = $redirect->getStatusCode();
 
