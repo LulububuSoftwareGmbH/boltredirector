@@ -90,7 +90,11 @@ class Redirect extends ParameterBag
      */
     public function match($path)
     {
-        return preg_match("~^" . $this->computedWildcards . "$~i", $path);
+        try {
+            return preg_match("~^" . $this->computedWildcards . "$~i", $path);
+        } catch (\Exception $exception) {
+            return false;
+        }
     }
 
     /**

@@ -37,8 +37,13 @@ class Redirector
         foreach ($this->config->getRedirects() as $redirect) {
 
             $redirect->prepare();
+            $match = $redirect->match($path);
 
-            if ($redirect->match($path)) {
+            if ($match === false) {
+                $app['logger.flash']->error('Error while parsing the boltredirector <a href="/bolt/file/edit/extensions_config/boltredirector.sahassar.yml">configuration</a>.');
+            }
+
+            if ($match) {
                 $result = $redirect->getResult($path);
                 $status = $redirect->getStatusCode();
 
